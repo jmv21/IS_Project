@@ -60,7 +60,7 @@
                                 </div>
                                 <div class="custom-control custom-checkbox">
                                     <input class="custom-control-input" type="checkbox" id="customCheckbox1"
-                                           value="option1" name="partner">
+                                           value="option1">
                                     <label for="customCheckbox1" class="custom-control-label"
                                     >Check this to pay with
                                         partner points</label>
@@ -227,17 +227,18 @@
         var counter = 0;
 
         function test(widget) {
-            let cost = 0;
-            if($('#customCheckbox1').checked){
-                cost={{ proj.monetary_cost }};
-            }else cost = {{ proj.partner_points_cost }};
+            rowcollection = get_checkbx_datatable()
+            rowcollection.each(function (index, element) {
+                {#element.checked=true;#}
+            })
+
             let x = document.getElementById('cost');
             let result = parseFloat(x.value)
             if (widget.checked === true) {
-                result += cost;
+                result += 20;
                 counter++;
             } else {
-                result -= cost;
+                result -= 20;
                 counter--;
             }
             if ((document.getElementById('customCheckbox1').checked) && result > {{user.partner_points}}) {
@@ -245,7 +246,7 @@
                 widget.checked = false
                 counter--;
             } else {
-                x.value = result.toFixed(2);
+                x.value = result.toFixed(2)
             }
             document.getElementById('button').disabled = counter <= 0;
         }
@@ -274,8 +275,10 @@
             let rowcollection = get_checkbx_datatable()
             rowcollection.each(function (index, element) {
                 element.checked = false;
+
             });
             document.getElementById('credit_card_input').readOnly = document.getElementById('customCheckbox1').checked;
+
         }
 
         $(function () {
@@ -287,11 +290,8 @@
                 rowcollection.each(function (index, element) {
                     let x = document.getElementById('cost');
                     let result = parseFloat(x.value)
-                    if (element.checked && $('#customCheckbox1').checked) {
-                        result += {{ proj.partner_points_cost }};
-                        x.value = result;
-                    } else {
-                        result += {{ proj.monetary_cost }};
+                    if (element.checked) {
+                        result += 20;
                         x.value = result;
                     }
                 })
@@ -321,10 +321,10 @@
 
         function fill_resuts(widget) {
             let rowcollection = get_checkbx_datatable()
-            widget.value = ""
+            widget.value=""
             rowcollection.each(function (index, element) {
-                if (element.checked) {
-                    widget.value === '' ? widget.value += element.value : widget.value += "," + element.value;
+                if(element.checked){
+                    widget.value==='' ? widget.value+=element.value:widget.value+=","+element.value;
                 }
             });
         }
