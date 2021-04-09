@@ -22,7 +22,7 @@
         <tr>
             <td>{{ projection.movie }}</td>
             <td>Projection begins on {{ projection.time.beginning_time }} and ends on {{ projection.time.ending_time.time }}</td>
-            <td>{{ projection.hall }}, you can <a href="/Cinema/reserves/" > reserve here</a></td>
+            <td>{{ projection.hall }}, you can <a href="/Cinema/reserves/{{ projection.id }}" > reserve here</a></td>
         </tr>
     {% endfor %}
 {% endblock %}

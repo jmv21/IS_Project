@@ -30,13 +30,27 @@
                         <div class="card" style="display: compact">
                             <div class="card-header"><h3><strong>Reserve ticket</strong></h3></div>
                             <div class="card-body" id="card_body">
+                                <label for="user_email">User's email</label>
+                                <div class="form-group">
+                                    <div class="input-group mb-3" id="this">
+                                        <input type="email" min="0" minlength="5" class="form-control"
+                                               id="user_email"
+                                               name="email"
+                                               placeholder="Enter your email here"
+                                        >
+                                        <div class="input-group-append">
+                                            <div class="input-group-text" id="username">
+                                                <span class="fas fa-envelope"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <label for="credit_card_input">Credit card number:</label>
                                 <div class="input-group mb-3" id="this">
                                     <input type="number" name="credit_card" min="0" maxlength="8" class="form-control"
                                            id="credit_card_input"
                                            placeholder="Enter your credit card number"
-                                           oninput="validity.valid||(value=this.value);"
-                                           onkeypress="if(this.value.length===8)return false"
+                                           oninput="credit_valid(this);"
                                            autofocus="true">
                                     <div class="input-group-append">
                                         <div class="input-group-text" id="username">
@@ -44,9 +58,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                {% if user.is_authenticated %}
-
-                                {% endif %}
                                 <div class="custom-control custom-checkbox">
                                     <input class="custom-control-input" type="checkbox" id="customCheckbox1"
                                            value="option1">
@@ -164,6 +175,8 @@
     <script src="{% static "plugins/DataTables-1.10.24/js/jquery.dataTables.js" %}"></script>
     <script src="{% static "plugins/DataTables-1.10.24/js/dataTables.bootstrap4.js" %}"></script>
     <script src="{% static "lib/sweetalert2-9.10.0/sweetalert2.all.js" %}"></script>
+    <script src="{% static "plugins/jquery-validation/jquery.validate.min.js" %}"></script>
+    <script src="{% static "plugins/jquery-validation/additional-methods.js" %}"></script>
 
     <script type="application/javascript">
         $(function () {
@@ -214,7 +227,6 @@
         var counter = 0;
 
         function test(widget) {
-
             rowcollection = get_checkbx_datatable()
             rowcollection.each(function (index, element) {
                 {#element.checked=true;#}
@@ -229,7 +241,7 @@
                 result -= 20;
                 counter--;
             }
-            if ((document.getElementById('customCheckbox1').checked) && result > 40) {
+            if ((document.getElementById('customCheckbox1').checked) && result > {{user.partner_points}}) {
                 toast("You don't have enough partner points to make this operation")
                 widget.checked = false
                 counter--;
@@ -240,10 +252,15 @@
         }
 
         $('#customCheckbox1').click(function () {
+            let check_box = document.getElementById('customCheckbox1');
+            {% if not user.is_authenticated %}
+                check_box.checked = false;
+                check_box.disable = true;
+            {% endif %}
             let x = document.getElementById('credit_card_input')
             let value = x.value;
-            let c = document.getElementById('customCheckbox1');
-            x.readOnly = c.checked;
+
+            x.readOnly = check_box.checked;
             x.value = value;
 
             let rowcollection = get_checkbx_datatable()
@@ -268,31 +285,90 @@
             let x = document.getElementById('customCheckbox1');
             if (x.checked) {
                 reset();
-            }
-            else{
+            } else {
+                let rowcollection = get_checkbx_datatable();
                 rowcollection.each(function (index, element) {
-                let x = document.getElementById('cost');
-                let result = parseFloat(x.value)
-                    if (element.checked){
-                       result+=20;
-                       x.value=result;
-                }
-            })
+                    let x = document.getElementById('cost');
+                    let result = parseFloat(x.value)
+                    if (element.checked) {
+                        result += 20;
+                        x.value = result;
+                    }
+                })
             }
         })
 
         $('#button').click(function () {
+            let a = document.getElementById('result');
+            if (a != null) {
+                fill_resuts(a);
+                return;
+            }
             let new_input = document.createElement('input')
             new_input.id = "result";
             new_input.type = 'text';
             new_input.className = 'form-control';
-            new_input.disabled = false;
+            new_input.disabled = true;
             new_input.hidden = false;
+            new_input.name = 'result';
             let form = document.getElementById('my_post');
             form.appendChild(new_input);
-            let a = document.getElementById('result');
+            let result_input = document.getElementById('result');
+            fill_resuts(result_input);
+
         });
+        var aux_value = ''
+
+        function fill_resuts(widget) {
+            let rowcollection = get_checkbx_datatable()
+            widget.value=""
+            rowcollection.each(function (index, element) {
+                if(element.checked){
+                    widget.value==='' ? widget.value+=element.value:widget.value+=","+element.value;
+                }
+            });
+        }
+
+        function credit_valid(widget) {
+            if (!(widget.validity.valid)) {
+                widget.value = aux_value;
+            }
+            if (widget.maxLength < widget.value.length) {
+                widget.value = aux_value;
+            }
+            aux_value = widget.value;
+        }
+
+        $(function () {
+            $('#my_post').validate({
+                rules: {
+                    email: {
+                        required: true,
+                        minlength: 5
+                    },
+                },
+                messages: {
+                    email: {
+                        required: "Please enter an email adress",
+                        email: "Please enter a valid email address"
+                    },
+                },
+                errorElement: 'span',
+                errorPlacement: function (error, element) {
+                    error.addClass('invalid-feedback');
+                    element.closest('.form-group').append(error);
+                },
+                highlight: function (element, errorClass, validClass) {
+                    $(element).addClass('is-invalid');
+                },
+                unhighlight: function (element, errorClass, validClass) {
+                    $(element).removeClass('is-invalid');
+                }
+            })
+        })
     </script>
+
+
 
 
 {% endblock add_js %}
