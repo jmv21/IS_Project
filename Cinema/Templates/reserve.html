@@ -220,24 +220,19 @@
 
         function get_checkbx_datatable() {
             let myTable = $('#example1').dataTable();
-
             return myTable.$(".my-checkbox", {"page": "all"});
         }
 
         var counter = 0;
 
         function test(widget) {
-            let cost = 0;
-            if($('#customCheckbox1').checked){
-                cost={{ proj.monetary_cost }};
-            }else cost = {{ proj.partner_points_cost }};
             let x = document.getElementById('cost');
             let result = parseFloat(x.value)
             if (widget.checked === true) {
-                result += cost;
+                result += 20;
                 counter++;
             } else {
-                result -= cost;
+                result -= 20;
                 counter--;
             }
             if ((document.getElementById('customCheckbox1').checked) && result > {{user.partner_points}}) {
@@ -249,6 +244,8 @@
             }
             document.getElementById('button').disabled = counter <= 0;
         }
+
+        var proj = {{ projection.monetary_cost }}
 
         $('#customCheckbox1').click(function () {
             let check_box = document.getElementById('customCheckbox1');
@@ -288,10 +285,10 @@
                     let x = document.getElementById('cost');
                     let result = parseFloat(x.value)
                     if (element.checked && $('#customCheckbox1').checked) {
-                        result += {{ proj.partner_points_cost }};
+                        result += proj;
                         x.value = result;
                     } else {
-                        result += {{ proj.monetary_cost }};
+                        result += proj
                         x.value = result;
                     }
                 })

@@ -32,6 +32,6 @@ class Reserves(TemplateView):
         self.projection = proj_id
         proj = get_spec_proj(proj_id)
         context = self.get_context_data(**kwargs)
-        context['proj'] = proj
+        context['projection'] = proj
         context['seats'] = seats_query(proj.hall_id)
         return render(request, self.template_name, context)

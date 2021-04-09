@@ -10,9 +10,9 @@ class Projection(models.Model):
     hall = models.ForeignKey(Hall, blank=False, null=True, on_delete=models.SET_NULL)
     movie = models.ForeignKey(Movie, blank=False, null=False, on_delete=models.CASCADE)
     time = models.ForeignKey(Time, blank=False, null=True, on_delete=models.CASCADE)
-    monetary_cost = models.DecimalField(name="monetary cost", default=20, decimal_places=2, max_digits=8,
+    monetary_cost = models.DecimalField(default=20, decimal_places=2, max_digits=8,
                                         validators=[MinValueValidator(0)])
-    partner_points_cost = models.DecimalField(name='partner points cost', default=20, decimal_places=2, max_digits=8,
+    partner_points_cost = models.DecimalField(default=20, decimal_places=2, max_digits=8,
                                               validators=[MinValueValidator(0)])
     active = models.BooleanField(default=True)
 
