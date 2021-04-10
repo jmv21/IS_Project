@@ -1,8 +1,6 @@
 from Cinema.models.Actor import Actor, Discount
-
 from Cinema.models.Hall import Hall, Seat
 from Cinema.models.Actor import Actor
-
 from Cinema.models.Movie import Movie
 from Cinema.models.Projection import Projection
 from Cinema.models.Hall import Seat
@@ -56,10 +54,6 @@ def discount_update_active(options, all_inactive=False):
         Discount.objects.update(active=False)
         a = Discount.objects.all().values_list()
         print(a)
-
-
-def get_spec_proj(id):
-    return Projection.objects.get(id=id)
 
 
 def seats_query(id):

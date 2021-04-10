@@ -34,7 +34,16 @@
                         <div class="card" style="display: compact">
                             <div class="card-header"><h3><strong>Reserve ticket</strong></h3></div>
                             <div class="card-body" id="card_body">
-                                {% csrf_token %}
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-7">
+
+                        {% csrf_token %}
+                        <div class="card" style="display: compact">
+                            <div class="card-header"><h3><strong>Reserve ticket</strong></h3></div>
+                            <div class="card-body">
+
+
                                 <label for="user_email">User's email</label>
                                 <div class="form-group">
                                     <div class="input-group mb-3" id="this">
