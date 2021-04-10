@@ -9,5 +9,6 @@ urlpatterns = [
     path('movies_details/', bulk_views.details, name='movies_details'),
     path('active_discounts/', template_view.DiscountView.as_view(), name='active_discounts'),
     path('select_discounts/', template_view.SelectDiscountView.as_view(), name='select_discounts'),
+    path('algo/', main_views.test, name='test'),
 
 ]

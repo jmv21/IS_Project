@@ -1,9 +1,8 @@
-<<<<<<< HEAD
 from Cinema.models.Actor import Actor, Discount
-=======
+
 from Cinema.models.Hall import Hall, Seat
 from Cinema.models.Actor import Actor
->>>>>>> 972da751cb85698ba61a880221e3ed75b3e4abb3
+
 from Cinema.models.Movie import Movie
 from Cinema.models.Projection import Projection
 from Cinema.models.Hall import Seat
@@ -23,15 +22,9 @@ def movies_query():
 def projection_query():
     return Projection.objects.all()
 
-<<<<<<< HEAD
 
 def all_discounts_query():
-
     return Discount.objects.all()
-
-
-def get_spec_proj(id):
-    return Projection.objects.get(id=id)
 
 
 def active_discounts_query():
@@ -56,20 +49,18 @@ def active_discounts_query():
 
 
 def discount_update_active(options, all_inactive=False):
-
     if not all_inactive:
         Discount.objects.filter(id__in=options).update(active=True)
         Discount.objects.exclude(id__in=options).update(active=False)
     else:
         Discount.objects.update(active=False)
-        a=Discount.objects.all().values_list()
+        a = Discount.objects.all().values_list()
         print(a)
 
 
-=======
 def get_spec_proj(id):
     return Projection.objects.get(id=id)
 
->>>>>>> 972da751cb85698ba61a880221e3ed75b3e4abb3
+
 def seats_query(id):
     return Seat.objects.filter(hall_id=id)

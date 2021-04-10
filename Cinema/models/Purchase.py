@@ -5,10 +5,9 @@ from Cinema.models.Hall import Seat
 
 
 class Purchase(models.Model):
-
     email = models.EmailField()
-    entry = models.ForeignKey(Entry, blank=False, null=False, on_delete=models.SET_NULL)
-    seat = models.ForeignKey(Seat, blank=False, null=False, on_delete=models.SET_NULL)
+    entry = models.ForeignKey(Entry, null=True, on_delete=models.SET_NULL)
+    seat = models.ForeignKey(Seat, null=True, on_delete=models.SET_NULL)
     # A list of discounts id separated by ','
     discounts = models.CharField(max_length=100)
 

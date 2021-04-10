@@ -5,6 +5,10 @@
     <link rel="stylesheet" href="{% static "plugins/datatables-bs4/css/dataTables.bootstrap4.min.css" %}">
     <link rel="stylesheet" href="{% static "plugins/datatables-responsive/css/responsive.bootstrap4.min.css" %}">
     <link rel="stylesheet" href="{% static "plugins/datatables-buttons/css/buttons.bootstrap4.min.css" %}">
+
+    <link rel="stylesheet" href="{% static "plugins/select2/css/select2.min.css" %}">
+    <link rel="stylesheet" href="{% static "plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css" %}">
+
 {% endblock add_css %}
 
 {% block header %}
@@ -23,7 +27,6 @@
 
     <section class="content">
         <form action="." method="post" id="my_post">
-<<<<<<< Updated upstream
             {% csrf_token %}
             <div class="container-fluid">
                 <div class="row">
@@ -31,28 +34,15 @@
                         <div class="card" style="display: compact">
                             <div class="card-header"><h3><strong>Reserve ticket</strong></h3></div>
                             <div class="card-body" id="card_body">
-<<<<<<< HEAD
-=======
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-7">
-
-                        {% csrf_token %}
-                        <div class="card" style="display: compact">
-                            <div class="card-header"><h3><strong>Reserve ticket</strong></h3></div>
-                            <div class="card-body">
-
-
->>>>>>> Stashed changes
-=======
+                                {% csrf_token %}
                                 <label for="user_email">User's email</label>
                                 <div class="form-group">
                                     <div class="input-group mb-3" id="this">
-                                        <input type="email" min="0" minlength="5" class="form-control"
+                                        <input type="email" min="0" minlength="5"
+                                               class="form-control"
                                                id="user_email"
                                                name="email"
-                                               placeholder="Enter your email here"
-                                        >
+                                               placeholder="Enter your email here">
                                         <div class="input-group-append">
                                             <div class="input-group-text" id="username">
                                                 <span class="fas fa-envelope"></span>
@@ -60,49 +50,67 @@
                                         </div>
                                     </div>
                                 </div>
->>>>>>> 972da751cb85698ba61a880221e3ed75b3e4abb3
-                                <label for="credit_card_input">Credit card number:</label>
-                                <div class="input-group mb-3" id="this">
-                                    <input type="number" name="credit_card" min="0" maxlength="8" class="form-control"
-                                           id="credit_card_input"
-                                           placeholder="Enter your credit card number"
-                                           oninput="credit_valid(this);"
-                                           autofocus="true">
-                                    <div class="input-group-append">
-                                        <div class="input-group-text" id="username">
-                                            <span class="fas fa-credit-card"></span>
+                                <div class="form-group">
+                                    <label for="credit_card_input">Credit card number:</label>
+                                    <div class="input-group mb-3" id="this">
+                                        <input type="number" name="credit_card" min="0" maxlength="8"
+                                               class="form-control"
+                                               id="credit_card_input"
+                                               placeholder="Enter your credit card number"
+                                               oninput="credit_valid(this);"
+                                               autofocus="true">
+                                        <div class="input-group-append">
+                                            <div class="input-group-text" id="username">
+                                                <span class="fas fa-credit-card"></span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="custom-control custom-checkbox">
-                                    <input class="custom-control-input" type="checkbox" id="customCheckbox1"
+                                    <input class="custom-control-input" type="checkbox"
+                                           id="customCheckbox1"
                                            value="option1" name="partner">
                                     <label for="customCheckbox1" class="custom-control-label"
                                     >Check this to pay with
                                         partner points</label>
                                 </div>
-
+                                <div class="row">
+                                    <label>
+                                        <select class="form-control select2"
+                                                multiple="multiple"
+                                                name="discount[]"
+                                                data-placeholder="Select the element/s to see resistant armor sets to it/them"
+                                                data-dropdown-css-class="select2-blue"
+                                                style="width: 80%;"></select>
+                                    </label>
+                                </div>
                                 <div class="custom-control custom-checkbox">
-                                    <input class="custom-control-input" type="checkbox" id="customCheckbox2"
+                                    <input class="custom-control-input" type="checkbox"
+                                           id="customCheckbox2"
                                            value="option1">
-                                    <label for="customCheckbox2" class="custom-control-label">Apply discount 1</label>
+                                    <label for="customCheckbox2" class="custom-control-label">Apply
+                                        discount 1</label>
                                 </div>
 
                                 <div class="custom-control custom-checkbox">
-                                    <input class="custom-control-input" type="checkbox" id="customCheckbox3"
+                                    <input class="custom-control-input" type="checkbox"
+                                           id="customCheckbox3"
                                            value="option1">
-                                    <label for="customCheckbox3" class="custom-control-label">Apply discount 2</label>
+                                    <label for="customCheckbox3" class="custom-control-label">Apply
+                                        discount 2</label>
                                 </div>
 
                                 <hr/>
                                 <!-- card-secondary -->
                                 <div class="card card-secondary">
                                     <div class="card-header">
-                                        <h3 class="card-title">Select the seats that you like to reserve</h3>
+                                        <h3 class="card-title">Select the seats that you like to
+                                            reserve</h3>
                                     </div>
                                     <!-- /.card-header -->
                                     <div class="card-body">
-                                        <table id="example1" class="table table-bordered table-striped">
+                                        <table id="example1"
+                                               class="table table-bordered table-striped">
                                             <thead>
                                             {% block columns %}
                                                 <th scope="col" style="width: 5%">Check</th>
@@ -116,13 +124,9 @@
                                                     <tr>
                                                         <td>
                                                             <label>
-                                                                <input type="checkbox" name="reserved[]"
-<<<<<<< Updated upstream
-                                                                       class="form-check  my-checkbox "
-=======
-                                                                       class="checkbox-row my-checkbox "
->>>>>>> Stashed changes
-                                                                       value="{{ seat.id }}" onclick="test(this)">
+                                                                <input type="checkbox"
+                                                                       name="reserved[]"
+                                                                       onclick="test(this)">
                                                             </label>
                                                         </td>
                                                         <td>{{ seat.id }}</td>
@@ -133,29 +137,24 @@
                                             </tbody>
                                         </table>
                                     </div>
-
-                                    <!-- /.card-body -->
+                                    <!-- /.card-body-secondary -->
                                 </div>
-                                <!-- /.card-secondary -->
-
+                                <!-- /.card -->
                             </div>
                             <!-- /.card-body -->
                         </div>
-                        <!-- /.card -->
-
+                        <!-- /.primary card-->
                     </div>
                     <!-- /.col -->
                     <div class="col-lg-5">
                         <div class="card card-default">
                             <div class="card-header">
-                                <h3><strong><i class="fa fa-shopping-cart"></i>Sale Details</strong></h3>
+                                <h3><strong><i class="fa fa-shopping-cart"></i>Sale Details</strong>
+                                </h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
                                 {% csrf_token %}
                                 <label for="cost">Total to pay:</label>
                                 <div class="input-group mb-3">
@@ -173,19 +172,24 @@
                                     <div class="col-lg-12">
                                     <span class="text-red" id="text"
                                           hidden="true">You must reserve at least one seat</span>
-                                        <button type="submit" class="btn btn-outline-success btn-block" id="button"
+                                        <button type="submit"
+                                                class="btn btn-outline-success btn-block"
+                                                id="button"
                                                 disabled>
                                             <i class="fas fa-dollar"></i>Make purchase
                                         </button>
                                     </div>
                                     <!-- /.col -->
                                 </div>
-                                <!-- /.card-body -->
+                                <!-- /.row -->
                             </div>
+                            <!-- /.card-body -->
                         </div>
+                        <!-- /.card -->
                     </div>
-                    <!-- /.row -->
+                    <!-- /.col -->
                 </div>
+                <!-- /.row -->
             </div>
             <!-- /.container-fluid -->
         </form>
@@ -202,7 +206,17 @@
     <script src="{% static "plugins/jquery-validation/jquery.validate.min.js" %}"></script>
     <script src="{% static "plugins/jquery-validation/additional-methods.js" %}"></script>
 
+
+    <!-- Select2 -->
+    <script src="{% static "plugins/select2/js/select2.full.min.js" %}"></script>
+    <!-- dropzonejs -->
+    <script src="{% static "plugins/dropzone/min/dropzone.min.js" %}"></script>
+    <!-- InputMask -->
+    <script src="{% static "plugins/moment/moment.min.js" %}"></script>
+    <script src="{% static "plugins/inputmask/jquery.inputmask.min.js" %}"></script>
+
     <script type="application/javascript">
+
         $(function () {
             $('#example1').DataTable({
                 "paging": true,
@@ -224,6 +238,7 @@
 
     </script>
 
+
     <script>
         function toast(text) {
             var Toast = Swal.mixin({
@@ -241,6 +256,19 @@
     </script>
 
     <script type="text/javascript">
+        var cost = 0
+
+        $(document).onreadystatechange = function () {
+            set_cost();
+            let total_cost = document.getElementsByName('cost')
+            let x = 0
+            rowcollection = get_checkbx_datatable()
+            rowcollection.each(function (index, element) {
+                x = parseFloat(total_cost);
+                if (element.checked) total_cost = x += cost;
+            });
+        }
+
 
         function get_checkbx_datatable() {
             let myTable = $('#example1').dataTable();
@@ -253,28 +281,22 @@
             let x = document.getElementById('cost');
             let result = parseFloat(x.value)
             if (widget.checked === true) {
-                result += 20;
+                result += cost;
                 counter++;
             } else {
-                result -= 20;
+                result -= cost;
                 counter--;
             }
             if ((document.getElementById('customCheckbox1').checked) && result > {{user.partner_points}}) {
                 toast("You don't have enough partner points to make this operation")
                 widget.checked = false
-<<<<<<< Updated upstream
                 counter--;
-=======
-                counter--
->>>>>>> Stashed changes
             } else {
                 x.value = result.toFixed(2);
             }
             document.getElementById('button').disabled = counter <= 0;
-<<<<<<< Updated upstream
         }
 
-        var proj = {{ projection.monetary_cost }}
 
         $('#customCheckbox1').click(function () {
             let check_box = document.getElementById('customCheckbox1');
@@ -283,10 +305,8 @@
                 check_box.disable = true;
             {% endif %}
             let x = document.getElementById('credit_card_input')
-            let value = x.value;
-
-            x.readOnly = check_box.checked;
-            x.value = value;
+            x.disabled = check_box.checked;
+            x.value = '';
 
             let rowcollection = get_checkbx_datatable()
             rowcollection.each(function (index, element) {
@@ -324,6 +344,13 @@
             }
         })
 
+        function set_cost() {
+            let x = document.getElementById('customCheckbox1');
+            x.checked ? cost ={{ projection.partner_points_cost }} : cost =
+            {{ projection.monetary_cost }}
+        }
+
+
         $('#button').click(function () {
             let a = document.getElementById('result');
             if (a != null) {
@@ -339,10 +366,7 @@
             new_input.name = 'result';
             let form = document.getElementById('my_post');
             form.appendChild(new_input);
-<<<<<<< HEAD
-            let a = document.getElementById('result');
-=======
-        }
+        })
 
         $('#customCheckbox1').click(function () {
             let x = $('#credit_card_input')
@@ -352,29 +376,25 @@
 
             rowcollection = get_checkbx_datatable()
             rowcollection.each(function (index, element) {
-                element.checked=false;
+                element.checked = false;
                 reset();
             });
 
-         function reset() {
-             document.getElementById('button').disabled = true;
-             counter=0;
-             document.getElementById('cost').value= "0.00";
-         }
+            function reset() {
+                document.getElementById('button').disabled = true;
+                counter = 0;
+                document.getElementById('cost').value = "0.00";
+            }
 
             x.value = value
->>>>>>> Stashed changes
-=======
             let result_input = document.getElementById('result');
             fill_resuts(result_input);
-
->>>>>>> 972da751cb85698ba61a880221e3ed75b3e4abb3
         });
         var aux_value = ''
 
         function fill_resuts(widget) {
             let rowcollection = get_checkbx_datatable()
-            widget.value = ""
+            widget.value = " ";
             rowcollection.each(function (index, element) {
                 if (element.checked) {
                     widget.value === '' ? widget.value += element.value : widget.value += "," + element.value;
@@ -399,11 +419,17 @@
                         required: true,
                         minlength: 5
                     },
+                    credit_card: {
+                        minlength: 8
+                    },
                 },
                 messages: {
                     email: {
                         required: "Please enter an email adress",
                         email: "Please enter a valid email address"
+                    },
+                    credit_card: {
+                        minlength: "A credit card number is required"
                     },
                 },
                 errorElement: 'span',
@@ -417,6 +443,16 @@
                 unhighlight: function (element, errorClass, validClass) {
                     $(element).removeClass('is-invalid');
                 }
+            })
+        })
+
+        $(function () {
+            //Initialize Select2 Elements
+            $('.select2').select2();
+
+            //Initialize Select2 Elements
+            $('.select2bs4').select2({
+                theme: 'bootstrap4'
             })
         })
     </script>

@@ -35,9 +35,9 @@
                 <a href="{% url 'home' %}" class="nav-link">Home</a>
             </li>
             {% if user.is_superuser %}
-            <li class="nav-item">
-                <a href="/admin/" class="nav-link">Administration</a>
-            </li>
+                <li class="nav-item">
+                    <a href="/admin/" class="nav-link">Administration</a>
+                </li>
             {% endif %}
         </ul>
 
@@ -79,7 +79,8 @@
 
                         <div class="row">
                             <div class="col-md-12 text-center">
-                                <a href="#" class="btn btn-secondary" disabled="true">Partner Points: {{ user.partner_points }} </a>
+                                <a href="#" class="btn btn-secondary" disabled="true">Partner
+                                    Points: {{ user.partner_points }} </a>
                             </div>
                         </div>
                         <!-- /.row -->
@@ -131,7 +132,8 @@
                                 Movies
                             </p>
                         </a>
-                    </li><li class="nav-item">
+                    </li>
+                    <li class="nav-item">
                         <a href={% url 'projections' %} class="nav-link">
                             <i class="nav-icon fas fa-scroll"></i>
                             <p>
@@ -164,7 +166,8 @@
                     <div class="row mb-2">
                         <div class="col-sm-6">
                             {% block header %}
-                                <h1 class="m-0 text-dark text-white text-info text-bold" style=""> Welcome to Cinema+ site </h1>
+                                <h1 class="m-0 text-dark text-white text-info text-bold" style=""> Welcome to Cinema+
+                                    site </h1>
                             {% endblock header %}
                         </div><!-- /.col -->
                         <div class="col-sm-6">
@@ -194,12 +197,12 @@
                                         <h6 class="card-title">Basics</h6>
 
                                         <p class="card-text">Explain site basics</p>
-<<<<<<< Updated upstream
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+
+                                        <a href="Cinema/algo/" class="btn btn-primary">Go somewhere</a>
                                         <a href="{% url 'movies_details' %}" class="btn btn-primary">Go somewhere</a>
-=======
+
                                         <a href="{% url 'active_discounts' %}" class="btn btn-primary">Go somewhere</a>
->>>>>>> Stashed changes
+
                                     </div>
                                 </div>
                             </div>
