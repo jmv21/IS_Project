@@ -1,0 +1,26 @@
+{% extends 'base_tables.html' %}
+
+<thead>
+{% block columns %}
+    <tr>
+        <th scope="col">Name/th>
+        <th scope="col">Age/th>
+        <th scope="col">Sex/th>
+    </tr>
+
+{% endblock %}
+</thead>
+
+<tbody>
+{% block rows %}
+    {% for actor in actors %}
+        <tr>
+            <td>{{ actor.name }}</td>
+            <td>{{ actor.age }}</td>
+            <td>{{ actor.sex }}</td>
+        </tr>
+    {% endfor %}
+
+{% endblock %}
+<tbody>
+

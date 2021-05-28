@@ -1,0 +1,27 @@
+{% extends 'base_tables.html' %}
+
+<thead>
+{% block columns %}
+    <tr>
+        <th scope="col">Movie/th>
+        <th scope="col">Time/th>
+        <th scope="col">Hall/th>
+    </tr>
+
+{% endblock %}
+</thead>
+
+<tbody>
+{% block rows %}
+    {% for projection in projections %}
+        <tr>
+            <td>{{ projection.movie }}</td>
+            <td>{{ projection.time }}</td>
+            <td>{{ projection.hall }}</td>
+        </tr>
+    {% endfor %}
+
+{% endblock %}
+<tbody>
+
+

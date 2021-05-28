@@ -51,6 +51,64 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
       <!-- Right navbar links -->
       <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+          <li class="nav-item dropdown user-menu">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+          {% if user.is_authenticated%}
+              <img src="{% static 'dist/img/avatar.png' %}" class="user-image img-circle elevation-2" alt="User Image">
+              <span class="d-none d-md-inline">{{ user.username }}</span>
+            {% else %}
+                <span class="d-none d-md-inline"><i class="fas fa-user-alt"></i>User Register</span>
+            {% endif %}
+        </a>
+        <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">
+          <!-- User image -->
+        {% if user.is_authenticated%}
+          <li class="user-header bg-primary">
+
+            <img src="{% static 'dist/img/avatar.png' %}" class="img-circle elevation-2" alt="User Image">
+            <p>
+              {{ user.username }}
+              <small>Member since Nov. 2012</small>
+            </p>
+           {% else %}
+             <li class="user-header bg-secondary">
+               <p>
+                Sign in to buy tickets to available proyections or register if you
+                doesn't have an account already
+               </p>
+              {%endif%}
+          </li>
+          <!-- Menu Body -->
+        {%if user.is_authenticated%}
+          <li class="user-body">
+
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <a href="#" class="btn btn-secondary">Partner Points</a>
+              </div>
+            </div>
+            <!-- /.row -->
+              {%endif%}
+          </li>
+          <!-- Menu Footer-->
+          <li class="user-footer">
+            {% if user.is_authenticated%}
+                <a href="/Users/logout" class="btn btn-danger btn-flat float-right">
+                    <i class="fas fa-power-off"></i> Sign out </a>
+            {% else %}
+
+                <a>
+                    <a href="#" class="btn btn-outline-warning">
+                    <i class="fas fa-pen-alt"></i>Register
+                </a>
+                <a href={% url 'login' %} class="btn btn-outline-primary">
+                    <i class="fas fa-sign-in-alt"></i>Sign in
+                </a>
+            {% endif %}
+
+          </li>
+        </ul>
+      </li>
       </ul>
       </div>
     </div>
@@ -84,7 +142,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                with font-awesome or any other icon font library -->
           <li class="nav-header">CINEMA PROYECTIONS</li>
           <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href={% url 'movies' %} class="nav-link">
                   <i class="nav-icon fas fa-video"></i>
                   <p>
                       Movies

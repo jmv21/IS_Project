@@ -15,12 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from Cinema import views
-from Users.views import LoginFormView
+from Cinema.views import main_views
+
 
 urlpatterns = [
-    path('Cinema/', include('Cinema.urls')),
-    path('login/', LoginFormView.as_view()),
+    path('Cinema/', include('Cinema.infraestructure.urls')),
+    path('Users/', include('Users.urls')),
     path('admin/', admin.site.urls),
-    path('', views.home),
+    path('', main_views.home, name='home'),
 ]
