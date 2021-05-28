@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator
-from Actor import Actor
+
 
 
 class Movie(models.Model):
@@ -18,8 +18,6 @@ class Movie(models.Model):
     poster = models.ImageField()
 
     synopsis = models.TextField()
-
-    cast = models.ForeignKey(Actor, blank=False, null=False, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.name

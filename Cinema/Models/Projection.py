@@ -1,15 +1,15 @@
 from django.db import models
 from django.core.exceptions import ValidationError
-from Hall import Hall
-from Movie import Movie
-from Time import Time
+from .Hall import Hall
+from .Movie import Movie
+from .Time import Time
 
 
 class Projection(models.Model):
 
-    hall = models.ForeignKey(Hall, blank=False, null=False, on_delete=models.SET_NULL)
-    movie = models.ForeignKey(Movie, blank=False, null=False, on_delete=models.SET_NULL)
-    time = models.ForeignKey(Time, blank=False, null=False, on_delete=models.SET_NULL)
+    hall = models.ForeignKey(Hall, blank=False, null=True, on_delete=models.SET_NULL)
+    movie = models.ForeignKey(Movie, blank=False, null=False, on_delete=models.CASCADE)
+    time = models.ForeignKey(Time, blank=False, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.movie.name + str(self.hall)
