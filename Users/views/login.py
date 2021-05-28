@@ -1,7 +1,5 @@
 from django.contrib.auth import logout
 from django.contrib.auth.views import LoginView, LogoutView
-from  django.utils.decorators import method_decorator
-from d
 from django.shortcuts import render, redirect
 from django.views.generic import RedirectView
 
@@ -12,7 +10,6 @@ from django.utils.decorators import method_decorator
 class LoginFormView(LoginView):
     template_name = 'login.html'
 
-    @method_decorator(sensitive_post_parameters())
     def dispatch(self, request, *args, **kwargs):
         if(request.user.is_authenticated):
             return redirect('/')
