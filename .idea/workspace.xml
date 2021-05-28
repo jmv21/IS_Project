@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="838e0666-3eb0-452e-9333-6b9dc5040042" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,6 +49,9 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Users/templates" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\COSAS\Repos\IS_Project\IS_Project\Cinema\Templates\Main_Templates" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\COSAS\Repos\IS_Project\IS_Project\Users\templates" />
     </key>
@@ -70,11 +91,22 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1622146697224</updated>
-      <workItem from="1622146699681" duration="17450000" />
+      <workItem from="1622146699681" duration="24318000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

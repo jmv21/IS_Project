@@ -22,5 +22,5 @@ urlpatterns = [
     path('Cinema/', include('Cinema.urls')),
     path('login/', Login.as_view()),
     path('admin/', admin.site.urls),
-    path('', views.home, 'home'),
+    path('', views.home),
 ]

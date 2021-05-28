@@ -9,3 +9,14 @@ def home(request):
     template = loader.get_template('Main_Templates/base.html')
 
     return HttpResponse(template.render({}, request))
+
+def movies(request):
+    # <--Load the template--->
+    template = loader.get_template('Main_Templates/base_tables.html')
+
+    return HttpResponse(template.render({}, request))
+
+def test(request):
+    # <--Load the template--->
+    template = loader.get_template('test.html')
+    return HttpResponse(template.render({}, request))

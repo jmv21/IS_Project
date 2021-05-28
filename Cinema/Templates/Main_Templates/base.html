@@ -9,13 +9,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Top Navigation + Sidebar</title>
+  {% block title %} <title> Cinema+ </title> {% endblock title %}
+
 
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{% static "plugins/fontawesome-free/css/all.min.css" %}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{% static "dist/css/adminlte.min.css" %}">
+    {% block add_css %}
+
+    {% endblock add_css %}
+
 </head>
 <body class="hold-transition sidebar-collapse layout-top-nav">
 <div class="wrapper">
@@ -92,7 +97,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
     <!-- /.sidebar -->
   </aside>
-
+    {% block content_wrapper %}
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" style="background-image: url({% static "dist/img/photo4.jpg"%})">
     <!-- Content Header (Page header) -->
@@ -100,7 +105,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container">
         <div class="row mb-2">
           <div class="col-sm-6">
+              {% block header %}
               <h1 class="m-0 text-dark text-white text-info text-bold" > Welcome to Cinema+ site </h1>
+              {% endblock header %}
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -116,6 +123,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- /.content-header -->
 
     <!-- Main content -->
+  {% block main_content %}
     <div class="content">
       <div class="container">
         <div class="row">
@@ -139,8 +147,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
+  {% endblock main_content %}
   </div>
   <!-- /.content-wrapper -->
+    {% endblock content_wrapper %}
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -160,6 +170,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </div>
 <!-- ./wrapper -->
 
+{% block scripts %}
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
 <script src="{% static "/plugins/jquery/jquery.min.js" %}"></script>
@@ -169,5 +180,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{% static "dist/js/adminlte.js" %}"></script>
 <!-- AdminLTE -->
 <script src="{% static "dist/js/demo.js" %}"></script>
+{% endblock scripts %}
+{% block add_js %}
+
+{% endblock add_js %}
 </body>
 </html>
