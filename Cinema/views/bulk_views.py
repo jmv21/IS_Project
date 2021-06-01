@@ -34,12 +34,12 @@ def actors(request):
     context = {
         'actors': actors
     }
-    return render(request, 'Actors.html', context)
+    return render(request, 'actors.html', context)
 
 
 class ActorsListView(ListView):
     model = Actor
-    template_name = 'Actors.html'
+    template_name = 'actors.html'
     paginate_by = 2
 
     def get_queryset(self):
@@ -57,12 +57,12 @@ def projections(request):
     context = {
         'projections': projections
     }
-    return render(request, 'Projections.html', context)
+    return render(request, 'projections.html', context)
 
 
 class ProjectionsListView(ListView):
     model = Projection
-    template_name = 'Projections.html'
+    template_name = 'projections.html'
     paginate_by = 2
 
     def get_queryset(self):

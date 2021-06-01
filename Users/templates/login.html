@@ -25,8 +25,23 @@
         <div class="card-body">
             <p class="login-box-msg">Sign in to start your session</p>
 
-            <form action="" method="post">
+            <form action="." method="post">
                 {% csrf_token %}
+                <div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h5><i class="icon fas fa-ban"></i> Some error/s has ocurred</h5>
+                    <ul>
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                                <li> {{ error }}</li>
+                            {% endfor %}
+                        {% endfor %}
+                        {% for error in form.non_field_errors %}
+                                <li> {{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
                 <div class="input-group mb-3">
                     {{ form.username|add_class:'form-control'|attr:'autocomplete:off'|attr:'placeholder:Username' }}
                     <div class="input-group-append">
@@ -53,6 +68,7 @@
                     </div>
                     <!-- /.col -->
                 </div>
+
             </form>
         </div>
         <!-- /.card -->
