@@ -6,13 +6,12 @@ from .Time import Time
 
 
 class Projection(models.Model):
-
     hall = models.ForeignKey(Hall, blank=False, null=True, on_delete=models.SET_NULL)
     movie = models.ForeignKey(Movie, blank=False, null=False, on_delete=models.CASCADE)
     time = models.ForeignKey(Time, blank=False, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
-        return self.movie.name + str(self.hall)
+        return f"{self.movie.name} in {self.hall} at {self.time.beginning_time}"
 
     def clean(self):
         if Projection.objects.filter(time=self.time, hall=self.hall).count() != 0:

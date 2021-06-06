@@ -4,11 +4,11 @@ from django.core.exceptions import ValidationError
 
 class Time(models.Model):
 
-    beginning_time = models.DateTimeField()
-    ending_time = models.DateTimeField()
+    beginning_time = models.DateTimeField(null=False)
+    ending_time = models.DateTimeField(null=False)
 
     def __str__(self):
-        return f"starts at {self.beginning_time} and ends at {self.ending_time}"
+        return f"starts at ({self.beginning_time}) and ends at ({self.ending_time})"
 
     def clean(self):
         if self.ending_time <= self.beginning_time:

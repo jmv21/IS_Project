@@ -31,8 +31,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -49,29 +49,76 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../DB_Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Users/templates" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\COSAS\Repos\IS_Project\IS_Project\Cinema\Templates" />
       <recent name="D:\COSAS\Repos\IS_Project\IS_Project\Users\templates" />
+      <recent name="D:\COSAS\Repos\IS_Project\IS_Project\Cinema\Templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\COSAS\Repos\IS_Project\IS_Project\Cinema\Templates" />
       <recent name="D:\COSAS\Repos\IS_Project\IS_Project" />
       <recent name="D:\COSAS\Repos\IS_Project\IS_Project\Cinema\infraestructure" />
       <recent name="D:\COSAS\Repos\IS_Project\IS_Project\Cinema\views" />
       <recent name="D:\COSAS\Repos\IS_Project\IS_Project\Users\views" />
-      <recent name="D:\COSAS\Repos\IS_Project\IS_Project\Cinema\Templates\Main_Templates" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.manage">
+    <configuration name="login" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="IS_Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Users/views" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Users/views/login.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="manage" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="IS_Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/manage.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2">
+        <option name="RunConfigurationTask" enabled="true" run_configuration_name="IS_Project" run_configuration_type="Python.DjangoServer" />
+      </method>
+    </configuration>
     <configuration name="IS_Project" type="Python.DjangoServer" factoryName="Django server">
       <module name="IS_Project" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="IS_Project.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -89,6 +136,12 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.manage" />
+        <item itemvalue="Python.login" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -105,6 +158,10 @@
       <workItem from="1622220967616" duration="16000" />
       <workItem from="1622220984417" duration="4784000" />
       <workItem from="1622255843613" duration="134000" />
+      <workItem from="1622688791683" duration="19000" />
+      <workItem from="1622777709052" duration="21333000" />
+      <workItem from="1622855586791" duration="40279000" />
+      <workItem from="1623019796269" duration="2055000" />
     </task>
     <servers />
   </component>
@@ -124,14 +181,58 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1622255977005">
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1622933779937">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1622255977005" />
-    <state x="277" y="57" key="SettingsEditor" timestamp="1622176938584">
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1622933779937" />
+    <state x="484" y="8" key="#manage" timestamp="1622870592952">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1622176938584" />
+    <state x="484" y="8" key="#manage/0.0.1536.824@0.0.1536.824" timestamp="1622870592952" />
+    <state width="1103" height="466" key="DebuggerActiveHint" timestamp="1622871019641">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1103" height="466" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1622871019641" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1622870256293">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1622870256293" />
+    <state width="1493" height="272" key="GridCell.Tab.0.bottom" timestamp="1622959639105">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="272" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1622959639105" />
+    <state width="1493" height="272" key="GridCell.Tab.0.center" timestamp="1622959639105">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="272" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1622959639105" />
+    <state width="1493" height="272" key="GridCell.Tab.0.left" timestamp="1622959639105">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="272" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1622959639105" />
+    <state width="1493" height="272" key="GridCell.Tab.0.right" timestamp="1622959639105">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="272" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1622959639105" />
+    <state width="1493" height="272" key="GridCell.Tab.1.bottom" timestamp="1622959639106">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="272" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1622959639106" />
+    <state width="1493" height="272" key="GridCell.Tab.1.center" timestamp="1622959639105">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="272" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1622959639105" />
+    <state width="1493" height="272" key="GridCell.Tab.1.left" timestamp="1622959639105">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="272" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1622959639105" />
+    <state width="1493" height="272" key="GridCell.Tab.1.right" timestamp="1622959639106">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="272" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1622959639106" />
+    <state x="277" y="57" key="SettingsEditor" timestamp="1622870431931">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1622870431931" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1622177711460">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -140,5 +241,25 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1622181800568" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Cinema/views/main_views.py</url>
+          <line>14</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Cinema/views/main_views.py</url>
+          <line>13</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/IS_Project$login.coverage" NAME="login Coverage Results" MODIFIED="1622870105202" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Users/views" />
+    <SUITE FILE_PATH="coverage/IS_Project$manage.coverage" NAME="manage Coverage Results" MODIFIED="1622958633750" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

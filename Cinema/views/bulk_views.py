@@ -9,11 +9,6 @@ from Cinema.models.Actor import Actor
 from Cinema.models.Movie import Movie
 from Cinema.models.Projection import Projection
 
-
-
-
-
-
 class MoviesListView(ListView):
     model = Movie
     template_name = 'movies.html'
@@ -52,10 +47,10 @@ class ActorsListView(ListView):
 
 
 def projections(request):
-    projections = proyection_services.projection_query()
+    current_projections = proyection_services.projection_query()
 
     context = {
-        'projections': projections
+        'projections': current_projections
     }
     return render(request, 'projections.html', context)
 

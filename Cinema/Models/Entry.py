@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.validators import MinValueValidator
 from .Projection import Projection
-from .Seat import Seat
+from .Hall import Seat
 
 
 class Entry(models.Model):

@@ -1,5 +1,5 @@
-{% load  static %}
 {% load widget_tweaks %}
+{% load  static %}
 <!DOCTYPE html>
 
 <html lang="en">
@@ -12,8 +12,7 @@
     <link rel="stylesheet" href="{% static "plugins/fontawesome-free/css/all.min.css" %}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{% static "dist/css/adminlte.min.css" %}">
-    <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="{% static "plugins/icheck-bootstrap/icheck-bootstrap.min.css" %}">
+
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -25,46 +24,50 @@
         <div class="card-body">
             <p class="login-box-msg">Sign in to start your session</p>
 
-            <form action="." method="post">
+            <form action="." method="post" id="my_post">
                 {% csrf_token %}
-                <div class="alert alert-danger alert-dismissible">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    <h5><i class="icon fas fa-ban"></i> Some error/s has ocurred</h5>
-                    <ul>
-                        {% for field in form %}
-                            {% for error in field.errors %}
-                                <li> {{ error }}</li>
+                {% if form.errors %}
+                    <div class="alert alert-danger alert-dismissible" id="Error">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h5><i class="icon fas fa-ban"></i> Some error/s has ocurred</h5>
+                        <ul>
+                            {% for field in form %}
+                                {% for error in field.errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
                             {% endfor %}
-                        {% endfor %}
-                        {% for error in form.non_field_errors %}
-                                <li> {{ error }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-
+                            {% for error in form.non_field_errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
                 <div class="input-group mb-3">
                     {{ form.username|add_class:'form-control'|attr:'autocomplete:off'|attr:'placeholder:Username' }}
                     <div class="input-group-append">
-                        <div class="input-group-text">
+                        <div class="input-group-text" id="username">
                             <span class="fas fa-user"></span>
                         </div>
                     </div>
                 </div>
-                <div class="input-group mb-3" aria-errormessage="asdaa">
+                <div class="input-group mb-3">
                     {{ form.password|add_class:'form-control'|attr:'autocomplete:off'|attr:'placeholder:Password' }}
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>
+
                         </div>
                     </div>
                 </div>
-                {% csrf_token %}
                 <div class="row">
                     <!-- /.col -->
                     <div class="col-lg-12">
                         <button type="submit" class="btn btn-primary btn-block">
                             <i class="fas fa-sign-in-alt"></i>Sign in
                         </button>
+                        <span class="text-info">
+                            Doesn't have an account?  <a href="{% url 'create' %}">Register here</a>
+                        </span>
                     </div>
                     <!-- /.col -->
                 </div>
@@ -74,15 +77,30 @@
         <!-- /.card -->
     </div>
     <!-- /.login-box -->
-   </div>
-    <!-- REQUIRED SCRIPTS -->
-    <!-- jQuery -->
-    <script src="{% static "/plugins/jquery/jquery.min.js" %}"></script>
-    <!-- Bootstrap 4 -->
-    <script src="{% static "plugins/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
-    <!-- AdminLTE App -->
-    <script src="{% static "dist/js/adminlte.js" %}"></script>
-    <!-- AdminLTE -->
-    <script src="{% static "dist/js/demo.js" %}"></script>
+</div>
+<!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<script src="{% static "/plugins/jquery/jquery.min.js" %}"></script>
+<!-- Bootstrap 4 -->
+<script src="{% static "plugins/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static "dist/js/adminlte.js" %}"></script>
+<!-- AdminLTE -->
+<script src="{% static "dist/js/demo.js" %}"></script>
+
+<script src="{% static "plugins/jquery-validation/jquery.validate.js" %}"></script>
+<script src="{% static "plugins/jquery-validation/additional-methods.js" %}"></script>
+
+{#<script src="{% static "lib/sweetalert2-9.10.0/sweetalert2.all.js" %}"></script>#}
+
+{#<script type="application/javascript">#}
+{#    Swal.fire({#}
+{#        title: 'Error!',#}
+{#        text: 'Do you want to continue',#}
+{#        icon: 'error',#}
+{#        confirmButtonText: 'Cool'#}
+{#    });#}
+{##}
+{#</script>#}
 </body>
 </html>

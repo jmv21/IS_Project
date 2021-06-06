@@ -15,9 +15,9 @@ class Movie(models.Model):
 
     likes = models.IntegerField(default=0, validators=[MinValueValidator(0)])
 
-    poster = models.ImageField()
+    poster = models.ImageField(default='/profile_pics/default.jpg', upload_to='profile_pics/', null=False, blank=False)
 
-    synopsis = models.TextField()
+    synopsis = models.TextField(default="It's a movie", max_length=250)
 
     def __str__(self):
         return self.name
