@@ -11,42 +11,99 @@
 
 {% endblock %}
 
+{% block breadcrumb %}
+    <li class="breadcrumb-item "><a href="{% url 'home' %}">Home</a></li>
+    <li class="breadcrumb-item "><a href="{% url 'projections' %}">Projections</a></li>
+    <li class="breadcrumb-item ">Reservation Form</li>
+{% endblock breadcrumb %}
+
 {% block main_content %}
 
     <!-- /.card-header -->
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-header">Movies</div>
+                <div class="col-lg-7">
+                    <div class="card" style="display: compact">
+                        <div class="card-header"><h3><strong>Reserve ticket</strong></h3></div>
                         <div class="card-body">
                             <form action="." method="post" id="my_post">
                                 {% csrf_token %}
-                                <table id="example1" class="table table-bordered table-striped">
-                                    <thead>
-                                    {% block columns %}
-                                        <th scope="col">Check</th>
-                                        <th scope="col">Id</th>
-                                        <th scope="col">Number</th>
-                                    {% endblock %}
-                                    </thead>
-                                    <tbody>
-                                    {% block rows %}
-                                        {% for seat in seats %}
-                                            <tr>
-                                            <td>
-                                                <label>
-                                                    <input type="checkbox" class="checkbox-row">
-                                                </label>
-                                            </td>    
-                                                <td>{{ seat.id }}</td>
-                                                <td>{{ seat.number }}</td>
-                                            </tr>
-                                        {% endfor %}
-                                    {% endblock %}
-                                    </tbody>
-                                </table>
+                                <label for="credit_card_input">Credit card number:</label>
+                                <div class="input-group mb-3">
+                                    <input type="number" name="credit_card" min="0" maxlength="8" class="form-control"
+                                           id="credit_card_input"
+                                           placeholder="Enter your credit card number"
+                                           oninput="validity.valid||(value='');"
+                                           onkeypress="if(this.value.length===8)return false" autofocus="true">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text" id="username">
+                                            <span class="fas fa-credit-card"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% if user.is_authenticated %}
+
+                                {% endif %}
+                                <div class="custom-control custom-checkbox">
+                                    <input class="custom-control-input" type="checkbox" id="customCheckbox1"
+                                           value="option1">
+                                    <label for="customCheckbox1" class="custom-control-label"
+                                           onclick="let x=getElementById('credit_card_input');">Check this to pay with
+                                        partner points</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox">
+                                    <input class="custom-control-input" type="checkbox" id="customCheckbox2"
+                                           value="option1">
+                                    <label for="customCheckbox2" class="custom-control-label">Apply discount 1</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox">
+                                    <input class="custom-control-input" type="checkbox" id="customCheckbox3"
+                                           value="option1">
+                                    <label for="customCheckbox3" class="custom-control-label">Apply discount 2</label>
+                                </div>
+
+                                <hr/>
+                                <!-- card-secondary -->
+                                <div class="card card-secondary">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Select the seats that you like to reserve</h3>
+                                    </div>
+                                    <!-- /.card-header -->
+                                    <div class="card-body">
+                                        <table id="example1" class="table table-bordered table-striped">
+                                            <thead>
+                                            {% block columns %}
+                                                <th scope="col" style="width: 5%">Check</th>
+                                                <th scope="col">Id</th>
+                                                <th scope="col">Number</th>
+                                            {% endblock %}
+                                            </thead>
+                                            <tbody>
+                                            {% block rows %}
+                                                {% for seat in seats %}
+                                                    <tr>
+                                                        <td>
+                                                            <label>
+                                                                <input type="checkbox" name="reserved"
+                                                                       class="checkbox-row "
+                                                                       value="{{ seat.id }}" onclick="test(this)">
+                                                            </label>
+                                                        </td>
+                                                        <td>{{ seat.id }}</td>
+                                                        <td>{{ seat.number }}</td>
+                                                    </tr>
+                                                {% endfor %}
+                                            {% endblock %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <!-- /.card-body -->
+                                </div>
+                                <!-- /.card-secondary -->
                             </form>
                         </div>
                         <!-- /.card-body -->
@@ -54,10 +111,48 @@
                     <!-- /.card -->
                 </div>
                 <!-- /.col -->
+                <div class="col-lg-5">
+                    <div class="card card-default">
+                        <div class="card-header">
+                            <h3><strong><i class="fa fa-shopping-cart"></i>Sale Details</strong></h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <form action="." method="post" id="sales">
+                                {% csrf_token %}
+                                <label for="cost">Total to pay:</label>
+                                <div class="input-group mb-3">
+                                    <input type="number" name="total_cost" class="form-control"
+                                           id="cost"
+                                           value="0.0" readonly="true">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text" id="username">
+                                            <span class="fas fa-dollar-sign"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!-- /.col -->
+                                    <div class="col-lg-12">
+                                        <span class="text-red" id="text" hidden="true">You must reserve at least one seat</span>
+                                        <button type="submit" class="btn btn-outline-success btn-block" id="button"
+                                                disabled>
+                                            <i class="fas fa-dollar"></i>Make purchase
+                                        </button>
+
+
+                                    </div>
+                                    <!-- /.col -->
+
+                                </div>
+                                <!-- /.card-body -->
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.container-fluid -->
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
 {% endblock main_content %}
@@ -67,6 +162,7 @@
     <!-- DataTables  & Plugins -->
     <script src="{% static "plugins/DataTables-1.10.24/js/jquery.dataTables.js" %}"></script>
     <script src="{% static "plugins/DataTables-1.10.24/js/dataTables.bootstrap4.js" %}"></script>
+    <script src="{% static "lib/sweetalert2-9.10.0/sweetalert2.all.js" %}"></script>
 
     <script type="application/javascript">
         $(function () {
@@ -80,6 +176,54 @@
                 "responsive": true,
             });
         });
+        {% if not user.is_authenticated %}
+            $(function () {
+                let x = document.getElementById('customCheckbox1')
+                x.disabled = true
+            })
+        {% endif%}
+
+    </script>
+
+    <script>
+        function toast(text) {
+            var Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000
+            });
+
+            Toast.fire({
+                icon: 'error',
+                title: text
+            })
+        }
+    </script>
+
+    <script type="text/javascript">
+        function mouseOver() {
+            document.getElementById('text').hidden = false
+        }
+
+        function mouseOut() {
+            document.getElementById('text').hidden = true
+        }
+
+        function test(widget) {
+            let x = document.getElementById('cost');
+            let result = parseFloat(x.value)
+            if (widget.checked === true) {
+                result += 20;
+            } else result -= 20;
+            if (result > 40) {
+                toast("You don't have enough partner points to make this operation")
+                widget.checked = false
+            } else {
+                x.value = result.toFixed(2)
+            }
+
+        }
 
     </script>
 

@@ -11,6 +11,11 @@
 {% endblock %}
 </thead>
 
+{% block breadcrumb %}
+    <li class="breadcrumb-item "><a href="{% url 'home' %}">Home</a></li>
+    <li class="breadcrumb-item ">Projections</li>
+{% endblock breadcrumb %}
+
 <tbody>
 {% block rows %}
     {% for projection in projections %}
