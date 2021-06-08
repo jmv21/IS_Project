@@ -20,22 +20,24 @@
 {% block main_content %}
 
     <!-- /.card-header -->
+
     <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-7">
-                    <div class="card" style="display: compact">
-                        <div class="card-header"><h3><strong>Reserve ticket</strong></h3></div>
-                        <div class="card-body">
-                            <form action="." method="post" id="my_post">
-                                {% csrf_token %}
+        <form action="." method="post" id="my_post">
+            {% csrf_token %}
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="card" style="display: compact">
+                            <div class="card-header"><h3><strong>Reserve ticket</strong></h3></div>
+                            <div class="card-body" id="card_body">
                                 <label for="credit_card_input">Credit card number:</label>
-                                <div class="input-group mb-3">
+                                <div class="input-group mb-3" id="this">
                                     <input type="number" name="credit_card" min="0" maxlength="8" class="form-control"
                                            id="credit_card_input"
                                            placeholder="Enter your credit card number"
-                                           oninput="validity.valid||(value='');"
-                                           onkeypress="if(this.value.length===8)return false" autofocus="true">
+                                           oninput="validity.valid||(value=this.value);"
+                                           onkeypress="if(this.value.length===8)return false"
+                                           autofocus="true">
                                     <div class="input-group-append">
                                         <div class="input-group-text" id="username">
                                             <span class="fas fa-credit-card"></span>
@@ -49,7 +51,7 @@
                                     <input class="custom-control-input" type="checkbox" id="customCheckbox1"
                                            value="option1">
                                     <label for="customCheckbox1" class="custom-control-label"
-                                           onclick="let x=getElementById('credit_card_input');">Check this to pay with
+                                    >Check this to pay with
                                         partner points</label>
                                 </div>
 
@@ -87,8 +89,8 @@
                                                     <tr>
                                                         <td>
                                                             <label>
-                                                                <input type="checkbox" name="reserved"
-                                                                       class="checkbox-row "
+                                                                <input type="checkbox" name="reserved[]"
+                                                                       class="form-check  my-checkbox "
                                                                        value="{{ seat.id }}" onclick="test(this)">
                                                             </label>
                                                         </td>
@@ -104,27 +106,27 @@
                                     <!-- /.card-body -->
                                 </div>
                                 <!-- /.card-secondary -->
-                            </form>
+
+                            </div>
+                            <!-- /.card-body -->
                         </div>
-                        <!-- /.card-body -->
+                        <!-- /.card -->
+
                     </div>
-                    <!-- /.card -->
-                </div>
-                <!-- /.col -->
-                <div class="col-lg-5">
-                    <div class="card card-default">
-                        <div class="card-header">
-                            <h3><strong><i class="fa fa-shopping-cart"></i>Sale Details</strong></h3>
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <form action="." method="post" id="sales">
+                    <!-- /.col -->
+                    <div class="col-lg-5">
+                        <div class="card card-default">
+                            <div class="card-header">
+                                <h3><strong><i class="fa fa-shopping-cart"></i>Sale Details</strong></h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
                                 {% csrf_token %}
                                 <label for="cost">Total to pay:</label>
                                 <div class="input-group mb-3">
                                     <input type="number" name="total_cost" class="form-control"
                                            id="cost"
-                                           value="0.0" readonly="true">
+                                           value="0.00" readonly="true">
                                     <div class="input-group-append">
                                         <div class="input-group-text" id="username">
                                             <span class="fas fa-dollar-sign"></span>
@@ -134,25 +136,24 @@
                                 <div class="row">
                                     <!-- /.col -->
                                     <div class="col-lg-12">
-                                        <span class="text-red" id="text" hidden="true">You must reserve at least one seat</span>
+                                    <span class="text-red" id="text"
+                                          hidden="true">You must reserve at least one seat</span>
                                         <button type="submit" class="btn btn-outline-success btn-block" id="button"
                                                 disabled>
                                             <i class="fas fa-dollar"></i>Make purchase
                                         </button>
-
-
                                     </div>
                                     <!-- /.col -->
-
                                 </div>
                                 <!-- /.card-body -->
+                            </div>
                         </div>
                     </div>
                     <!-- /.row -->
                 </div>
-                <!-- /.container-fluid -->
             </div>
-        </div>
+            <!-- /.container-fluid -->
+        </form>
     </section>
     <!-- /.content -->
 {% endblock main_content %}
@@ -180,6 +181,7 @@
             $(function () {
                 let x = document.getElementById('customCheckbox1')
                 x.disabled = true
+                x.checked = false
             })
         {% endif%}
 
@@ -202,29 +204,94 @@
     </script>
 
     <script type="text/javascript">
-        function mouseOver() {
-            document.getElementById('text').hidden = false
+
+        function get_checkbx_datatable() {
+            let myTable = $('#example1').dataTable();
+
+            return myTable.$(".my-checkbox", {"page": "all"});
         }
 
-        function mouseOut() {
-            document.getElementById('text').hidden = true
-        }
+        var counter = 0;
 
         function test(widget) {
+
+            rowcollection = get_checkbx_datatable()
+            rowcollection.each(function (index, element) {
+                {#element.checked=true;#}
+            })
+
             let x = document.getElementById('cost');
             let result = parseFloat(x.value)
             if (widget.checked === true) {
                 result += 20;
-            } else result -= 20;
-            if (result > 40) {
+                counter++;
+            } else {
+                result -= 20;
+                counter--;
+            }
+            if ((document.getElementById('customCheckbox1').checked) && result > 40) {
                 toast("You don't have enough partner points to make this operation")
                 widget.checked = false
+                counter--;
             } else {
                 x.value = result.toFixed(2)
             }
+            document.getElementById('button').disabled = counter <= 0;
+        }
+
+        $('#customCheckbox1').click(function () {
+            let x = document.getElementById('credit_card_input')
+            let value = x.value;
+            let c = document.getElementById('customCheckbox1');
+            x.readOnly = c.checked;
+            x.value = value;
+
+            let rowcollection = get_checkbx_datatable()
+            rowcollection.each(function (index, element) {
+                element.checked = false;
+                reset();
+            });
+        });
+
+        function reset() {
+            document.getElementById('cost').value = "0.00"
+            let rowcollection = get_checkbx_datatable()
+            rowcollection.each(function (index, element) {
+                element.checked = false;
+
+            });
+            document.getElementById('credit_card_input').readOnly = document.getElementById('customCheckbox1').checked;
 
         }
 
+        $(function () {
+            let x = document.getElementById('customCheckbox1');
+            if (x.checked) {
+                reset();
+            }
+            else{
+                rowcollection.each(function (index, element) {
+                let x = document.getElementById('cost');
+                let result = parseFloat(x.value)
+                    if (element.checked){
+                       result+=20;
+                       x.value=result;
+                }
+            })
+            }
+        })
+
+        $('#button').click(function () {
+            let new_input = document.createElement('input')
+            new_input.id = "result";
+            new_input.type = 'text';
+            new_input.className = 'form-control';
+            new_input.disabled = false;
+            new_input.hidden = false;
+            let form = document.getElementById('my_post');
+            form.appendChild(new_input);
+            let a = document.getElementById('result');
+        });
     </script>
 
 
