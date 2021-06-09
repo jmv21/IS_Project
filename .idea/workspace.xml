@@ -31,8 +31,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -50,6 +50,12 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Users/templates" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -162,7 +168,12 @@
       <workItem from="1622777709052" duration="21333000" />
       <workItem from="1622855586791" duration="40279000" />
       <workItem from="1623019796269" duration="29762000" />
+<<<<<<< Updated upstream
       <workItem from="1623091353125" duration="34154000" />
+=======
+      <workItem from="1623091353125" duration="20975000" />
+      <workItem from="1623162651542" duration="22031000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
@@ -186,22 +197,32 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1623099340539" />
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1622933779937">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="444" y="140" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1623170185524">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="444" y="140" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1623170185524" />
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1622933779937" />
-    <state x="484" y="8" key="#manage" timestamp="1623099212602">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="430" y="0" key="#manage" timestamp="1623164932209">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="430" y="0" key="#manage/0.0.1366.728@0.0.1366.728" timestamp="1623164932209" />
     <state x="484" y="8" key="#manage/0.0.1536.824@0.0.1536.824" timestamp="1623099212602" />
+<<<<<<< Updated upstream
     <state width="1103" height="466" key="DebuggerActiveHint" timestamp="1623102318702">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
+=======
+    <state width="981" height="412" key="DebuggerActiveHint" timestamp="1623183568384">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="981" height="412" key="DebuggerActiveHint/0.0.1366.728@0.0.1366.728" timestamp="1623183568384" />
+>>>>>>> Stashed changes
     <state width="1103" height="466" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1623102318702" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1622870256293">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1622870256293" />
+<<<<<<< Updated upstream
     <state width="1493" height="260" key="GridCell.Tab.0.bottom" timestamp="1623102402122">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -233,6 +254,47 @@
     <state width="1493" height="260" key="GridCell.Tab.1.right" timestamp="1623102402123">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
+=======
+    <state width="1323" height="223" key="GridCell.Tab.0.bottom" timestamp="1623183611140">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1623183611140" />
+    <state width="1493" height="260" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1623102402122" />
+    <state width="1323" height="223" key="GridCell.Tab.0.center" timestamp="1623183611140">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1623183611140" />
+    <state width="1493" height="260" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1623102402122" />
+    <state width="1323" height="223" key="GridCell.Tab.0.left" timestamp="1623183611140">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1623183611140" />
+    <state width="1493" height="260" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1623102402122" />
+    <state width="1323" height="223" key="GridCell.Tab.0.right" timestamp="1623183611140">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1623183611140" />
+    <state width="1493" height="260" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1623102402122" />
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1623183611140">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1623183611140" />
+    <state width="1493" height="260" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1623102402123" />
+    <state width="1323" height="223" key="GridCell.Tab.1.center" timestamp="1623183611140">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1623183611140" />
+    <state width="1493" height="260" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1623102402123" />
+    <state width="1323" height="223" key="GridCell.Tab.1.left" timestamp="1623183611140">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1623183611140" />
+    <state width="1493" height="260" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1623102402123" />
+    <state width="1323" height="223" key="GridCell.Tab.1.right" timestamp="1623183611140">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1623183611140" />
+>>>>>>> Stashed changes
     <state width="1493" height="260" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1623102402123" />
     <state x="277" y="57" key="SettingsEditor" timestamp="1623100461414">
       <screen x="0" y="0" width="1536" height="824" />
@@ -266,6 +328,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Cinema/views/bulk_views.py</url>
+<<<<<<< Updated upstream
           <line>21</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
@@ -280,12 +343,26 @@
           <line>267</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="21" />
+=======
+          <line>23</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Cinema/services/proyection_services.py</url>
+          <line>55</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Cinema/views/template_view.py</url>
+          <line>31</line>
+          <option name="timeStamp" value="35" />
+>>>>>>> Stashed changes
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/IS_Project$login.coverage" NAME="login Coverage Results" MODIFIED="1622870105202" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Users/views" />
-    <SUITE FILE_PATH="coverage/IS_Project$manage.coverage" NAME="manage Coverage Results" MODIFIED="1623102401245" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/IS_Project$manage.coverage" NAME="manage Coverage Results" MODIFIED="1623183606416" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

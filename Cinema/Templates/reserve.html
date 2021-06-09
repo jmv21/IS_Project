@@ -23,6 +23,7 @@
 
     <section class="content">
         <form action="." method="post" id="my_post">
+<<<<<<< Updated upstream
             {% csrf_token %}
             <div class="container-fluid">
                 <div class="row">
@@ -30,6 +31,18 @@
                         <div class="card" style="display: compact">
                             <div class="card-header"><h3><strong>Reserve ticket</strong></h3></div>
                             <div class="card-body" id="card_body">
+=======
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-7">
+
+                        {% csrf_token %}
+                        <div class="card" style="display: compact">
+                            <div class="card-header"><h3><strong>Reserve ticket</strong></h3></div>
+                            <div class="card-body">
+
+
+>>>>>>> Stashed changes
                                 <label for="credit_card_input">Credit card number:</label>
                                 <div class="input-group mb-3" id="this">
                                     <input type="number" name="credit_card" min="0" maxlength="8" class="form-control"
@@ -90,7 +103,11 @@
                                                         <td>
                                                             <label>
                                                                 <input type="checkbox" name="reserved[]"
+<<<<<<< Updated upstream
                                                                        class="form-check  my-checkbox "
+=======
+                                                                       class="checkbox-row my-checkbox "
+>>>>>>> Stashed changes
                                                                        value="{{ seat.id }}" onclick="test(this)">
                                                             </label>
                                                         </td>
@@ -121,6 +138,10 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
                                 {% csrf_token %}
                                 <label for="cost">Total to pay:</label>
                                 <div class="input-group mb-3">
@@ -232,11 +253,16 @@
             if ((document.getElementById('customCheckbox1').checked) && result > 40) {
                 toast("You don't have enough partner points to make this operation")
                 widget.checked = false
+<<<<<<< Updated upstream
                 counter--;
+=======
+                counter--
+>>>>>>> Stashed changes
             } else {
                 x.value = result.toFixed(2)
             }
             document.getElementById('button').disabled = counter <= 0;
+<<<<<<< Updated upstream
         }
 
         $('#customCheckbox1').click(function () {
@@ -291,6 +317,29 @@
             let form = document.getElementById('my_post');
             form.appendChild(new_input);
             let a = document.getElementById('result');
+=======
+        }
+
+        $('#customCheckbox1').click(function () {
+            let x = $('#credit_card_input')
+            let value = x.value
+            x.disabled = !x.disabled
+            x.value = value
+
+            rowcollection = get_checkbx_datatable()
+            rowcollection.each(function (index, element) {
+                element.checked=false;
+                reset();
+            });
+
+         function reset() {
+             document.getElementById('button').disabled = true;
+             counter=0;
+             document.getElementById('cost').value= "0.00";
+         }
+
+            x.value = value
+>>>>>>> Stashed changes
         });
     </script>
 

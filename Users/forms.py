@@ -3,7 +3,6 @@ from django.forms.widgets import *
 from Users.models import Profile
 
 
-
 class UserForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

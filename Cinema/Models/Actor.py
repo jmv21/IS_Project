@@ -12,3 +12,17 @@ class Actor(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Discount(models.Model):
+
+    type = models.CharField(null=False, blank=False, max_length=50)
+    amount = models.IntegerField(null=False, blank=False, validators=[MinValueValidator(0), MaxValueValidator(100)])
+    description = models.TextField(null=False, blank=False)
+    active = models.BooleanField()
+
+    def __str__(self):
+        return self.type
+
+    class Meta:
+        verbose_name = 'Discount'

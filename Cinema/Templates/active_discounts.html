@@ -1,0 +1,22 @@
+{% extends 'Main_Templates/base_tables.html' %}
+<thead>
+{% block columns %}
+    <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Nationality</th>
+        <th scope="col">Genre</th>
+    </tr>
+{% endblock %}
+</thead>
+
+<tbody>
+{% block rows %}
+    {% for movie in movie_list %}
+        <tr>
+            <td>{{ movie.name }}</td>
+            <td>{{ movie.nationality }}</td>
+            <td>{{ movie.genre }}</td>
+        </tr>
+    {% endfor %}
+{% endblock %}
+<tbody>
