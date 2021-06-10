@@ -14,3 +14,9 @@ class Entry(models.Model):
 
     class Meta:
         unique_together = ["projection", "seat"]
+
+    @classmethod
+    def create(cls, projection, seat):
+
+        entry = cls(projection=projection, seat=seat)
+        return entry
